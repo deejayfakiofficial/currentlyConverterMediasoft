@@ -21,6 +21,8 @@ class SelectCurrencyController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //Тут проблема с выбором ячейки
+        vc.activeName = ChangeCountry.changeCountry[indexPath.row]
+        print(vc.activeName)
         print("test")
         dismiss(animated: true, completion: nil)
     }

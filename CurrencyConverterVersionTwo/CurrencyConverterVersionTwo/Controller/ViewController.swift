@@ -10,7 +10,6 @@ import UIKit
 class ViewController: UIViewController {
     
     //MARK: - Variable
-    
 //    var currencyName: [String] = []
 //    var currencyValue: [Double] = []
     var activeValue = 0.0
@@ -45,7 +44,8 @@ class ViewController: UIViewController {
         if firstTF.text != "" {
             let total = theNewText * activeValue
             secondTF.text = String(format: "%.2f", total)
-            secondCurrencyLabel.text = activeName.description
+            secondCurrencyLabel.text = activeName
+//            secondCurrencyLabel.text = activeName.description
             HistoryDataSource.history.append("\(firstTF.text!) USD = \(secondTF.text!) \(secondCurrencyLabel.text!)")
         }
     }
@@ -62,9 +62,10 @@ class ViewController: UIViewController {
                 let results = try JSONDecoder().decode(ExchangeRates.self, from: data)
 //                self.currencyName.append(contentsOf: results.rates.keys)
 //                self.currencyValue.append(contentsOf: results.rates.values)
-                self.activeValue = results.rates["RUB"]!
+                self.activeValue = results.rates[self.activeName]!
                 ChangeCountry.changeCountry.append(contentsOf: results.rates.keys)
                 ChangeCountry.countryValue.append(contentsOf: results.rates.values)
+                
                 print(results)
             }
             catch {

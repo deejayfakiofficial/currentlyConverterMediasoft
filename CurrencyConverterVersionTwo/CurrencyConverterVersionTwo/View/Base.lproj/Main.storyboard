@@ -58,7 +58,7 @@
                                 </state>
                                 <connections>
                                     <action selector="selectCurrencyName:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8Zz-aD-7W0"/>
-                                    <segue destination="nv4-z6-hln" kind="showDetail" id="7Bu-rZ-Pto"/>
+                                    <segue destination="nv4-z6-hln" kind="showDetail" identifier="showMenu" id="7Bu-rZ-Pto"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -96,6 +96,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="firstTF" destination="sJg-NS-bbC" id="qP6-oU-R1a"/>
+                        <outlet property="rightButton" destination="IpI-1e-E6o" id="MTP-dn-7UX"/>
                         <outlet property="secondCurrencyLabel" destination="INM-be-fNH" id="6wi-vR-Pmz"/>
                         <outlet property="secondTF" destination="HeR-VR-LUq" id="xqC-mr-3jh"/>
                     </connections>

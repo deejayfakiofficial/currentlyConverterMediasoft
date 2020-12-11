@@ -8,8 +8,7 @@
 import UIKit
 
 class SelectCurrencyController: UITableViewController {
-    
-    var vc = ViewController()
+    var selectName: ((String) ->())?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,9 +20,8 @@ class SelectCurrencyController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //Тут проблема с выбором ячейки
-        vc.activeName = ChangeCountry.changeCountry[indexPath.row]
-        print(vc.activeName)
-        print("test")
+        let name  = ChangeCountry.changeCountry[indexPath.row]
+        selectName?(name)
         dismiss(animated: true, completion: nil)
     }
     

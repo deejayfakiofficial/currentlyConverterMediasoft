@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     var activeName = "RUB"
         
         
+    @IBOutlet weak var rightButton: UIButton!
     @IBOutlet weak var secondCurrencyLabel: UILabel!
     @IBOutlet weak var firstTF: UITextField!
     @IBOutlet weak var secondTF: UITextField!
@@ -32,6 +33,17 @@ class ViewController: UIViewController {
     //MARK: - Method
     
     @IBAction func selectCurrencyName(_ sender: UIButton!) {
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let destination = segue.destination as? SelectCurrencyController else {
+            return
+        }
+        
+        destination.selectName = { [weak self] nameCurrency in
+            self?.activeName = nameCurrency
+        }
     }
     
     @objc func updateView (input: Double) {
